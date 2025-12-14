@@ -3,195 +3,316 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Love Story: [Your Names Here]</title>
+    <title>Our Love Story</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
-        /* --- CSS STYLES --- */
+        /* --- RESET & BASIC VARIABLES --- */
         :root {
-            --primary-color: #e91e63; /* Pink/Rose for a romantic feel */
-            --secondary-color: #ffc107; /* Gold/Amber for accent */
-            --background-color: #fce4ec; /* Very light pink */
-            --text-color: #333;
-            --font-family: 'Georgia', serif;
+            --primary: #ff6b81; /* Soft Red/Pink */
+            --secondary: #ffecd2; /* Light Peach */
+            --text-dark: #2c3e50;
+            --text-light: #ffffff;
+            --card-bg: #ffffff;
+            --shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
-            font-family: var(--font-family);
-            background-color: var(--background-color);
-            color: var(--text-color);
             margin: 0;
             padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            color: var(--text-dark);
             line-height: 1.6;
         }
 
+        /* --- HEADER & TIMER SECTION --- */
         header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 40px 20px;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            color: var(--text-light);
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 60px 20px;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 10px 30px rgba(255, 105, 135, 0.3);
         }
 
-        header h1 {
-            margin-bottom: 5px;
-            font-size: 2.5em;
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
-        #timer-section {
-            padding: 20px;
-            text-align: center;
-            background-color: white;
-            border-bottom: 2px solid var(--primary-color);
-        }
-
-        #timer {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: var(--primary-color);
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
             margin-top: 10px;
         }
 
+        .timer-box {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 20px;
+            display: inline-block;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        #timer {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* --- GENERAL SECTION STYLING --- */
         .container {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 0 20px;
-            display: flex;
-            gap: 30px;
-        }
-
-        .main-content {
-            flex: 3;
-        }
-
-        .sidebar {
-            flex: 1;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            width: 90%; /* Optimized for Mobile width */
+            max-width: 600px; /* Won't get too wide on Desktop */
+            margin: 0 auto;
+            padding-bottom: 50px;
         }
 
         section {
-            margin-bottom: 30px;
-            padding: 30px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            background: var(--card-bg);
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
         }
 
         h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 10px;
+            color: var(--primary);
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
             margin-top: 0;
-            font-size: 1.8em;
+            margin-bottom: 15px;
+            text-align: center;
         }
 
-        /* Styling for the music section list */
-        .music-list {
-            list-style-type: '🎵 '; /* Custom bullet point */
-            padding-left: 20px;
+        p {
+            font-size: 0.95rem;
+            color: #555;
+            text-align: justify;
         }
 
-        .music-list li {
+        /* --- SECTION 2: PHOTO GRID --- */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
+            gap: 10px;
+        }
+
+        .photo-grid img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover; /* Ensures images don't stretch */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* --- SECTION 3: SHARED MOMENTS (Mixed) --- */
+        .moment {
+            margin-bottom: 20px;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 20px;
+        }
+        
+        .moment:last-child {
+            border-bottom: none;
+        }
+
+        .moment img {
+            width: 100%;
+            border-radius: 10px;
             margin-bottom: 10px;
         }
 
-        /* Placeholder text style */
-        .placeholder {
-            font-style: italic;
-            color: #999;
+        /* --- SECTION 4: MUSIC LIST (Updated) --- */
+        .song-item {
+            background: #fafafa;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        /* Responsive design adjustments */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-            .sidebar {
-                margin-top: 20px;
-            }
+        .song-info {
+            margin-bottom: 10px;
         }
+
+        .song-info h4 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .song-info span {
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        /* Styling the Audio Player */
+        audio {
+            width: 100%; /* Makes the player fill the card */
+            height: 40px;
+            border-radius: 20px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 40px;
+        }
+
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Our Journey Together</h1>
-        <p>A place to cherish our memories, our love, and our future.</p>
+        <h1>Adinoyi & Ohunene ∞ </h1>
+        <div class="subtitle">Counting every beautiful second since August 25th, 2025</div>
+        
+        <div class="timer-box">
+            <div id="timer">Calculating...</div>
+        </div>
     </header>
 
-    <div id="timer-section">
-        <h2>We've been dating for:</h2>
-        <div id="timer"></div>
+    <div class="container">
+        
+        <section id="how-we-met">
+            <h2>How We Met</h2>
+            <p>
+                To Keep it short Snapchat, yes that same snapchat where others experience the worst, I managed to hit the lottery somehow. So I got a notfication " You've been added by Ohunene" on that faithful day of August 25th, just after accepting I got a message "Heyyy" and I was taken aback, responded immideately and My life never remained the same. she came into my life at a rather dark time a dark time I thought would never end, I have been told multiple times to be patient and take life one step at a time and as much as I could never give up i was always close, she changed that entirely. A light at the end of the tunnel I thought to myself she has made me a better person entirely, a more patient person and my desire for her, to be with her and to have her for the rest of my life is a drive and motivation I have never felt ever. and I am glad I get to feel this way.
+            </p>
+        </section>
+
+        <section id="gallery">
+            <h2>Our Smiles</h2>
+            <div class="photo-grid">
+                <img src="pic1.jpg">
+		<img src="pic2.jpg" alt="Us 2">
+        	<img src="pic3.jpg" alt="Us 3">
+        	<img src="pic5.png" alt="Us 6">
+        	<img src="pic5.jpg" alt="Us 5">
+        	<img src="pic6.jpg" alt="Us 6">
+            </div>
+        </section>
+
+        <section id="moments">
+            <h2>Shared Moments</h2>
+            
+            <div class="moment">
+                <img src="https://via.placeholder.com/600x400/ffecd2/000?text=First+Date+Pic" alt="First Date">
+                <h3>Our First Meeting</h3>
+                <p>Do you remember the first time we met? I thought I was going to be nervous but you came with so much energy, my nerves calmed immediately and I knew I was in trouble because I immediately realized that just the thought of losing you made my stomach ache</p>
+            </div>
+
+            <div class="moment">
+                <img src="pic4.jpg" alt="Us 4">
+                <h3>Our First "Real Date"</h3>
+                <p>Although the plan was to go a private cinema, it ended up being a lunch date at my favorite bowling place, it was a bit underwhelming but it never mattered because I got to spend the whole afternoon with you babe♡</p>
+            </div>
+        </section>
+
+        <section id="music">
+    <h2>Our Playlist</h2>
+    <p style="text-align: center; font-size: 0.9rem; margin-bottom: 20px;">
+        The soundtrack to our relationship 🎶
+    </p>
+    
+    <div class="song-item">
+        <div class="song-info">
+            <h4>I Wanna Be Yours</h4> <span>Arctic Monkeys</span> </div>
+        <audio controls>
+            <source src="music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
     </div>
 
-    <div class="container">
-        <div class="main-content">
-            <section id="story">
-                <h2>💖 Our Story: How We Met and Our Shared Moments</h2>
-                
-                <p class="placeholder">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-                    dapibus, eros at vestibulum dignissim, elit elit semper mi, vel
-                    efficitur mauris velit non nunc. Sed tristique ante non sapien
-                    ultricies, eu maximus velit congue.
-                </p>
-                <p class="placeholder">
-                    Here is where you will write about the first time you met, your
-                    favorite dates, and those small, special moments that define your
-                    relationship. Take your time to fill this space with your beautiful
-                    memories!
-                </p>
-                <p class="placeholder">
-                    Aliquam erat volutpat. Fusce finibus, mi a hendrerit tristique,
-                    sapien arcu vehicula ante, eu varius lectus ex ac nulla. Phasellus
-                    eget lacus ut nisl tincidunt bibendum. Donec in nulla nec nisi
-                    consectetur eleifend.
-                </p>
-            </section>
+    <div class="song-item">
+        <div class="song-info">
+            <h4>I Will always love you </h4>
+            <span>Whitney Houston</span>
         </div>
+        <audio controls>
+            <source src="song3.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-        <div class="sidebar">
-            <section id="music">
-                <h2>🎶 Our Favorite Music</h2>
-                <p>The soundtrack to our relationship.</p>
-                <ul class="music-list">
-                    <li>**[Song Title 1]** - [Artist Name 1]</li>
-                    <li>**[Song Title 2]** - [Artist Name 2]</li>
-                    <li>**[Song Title 3]** - [Artist Name 3]</li>
-                    <li>**[Song Title 4]** - [Artist Name 4]</li>
-                    <li>**[Song Title 5]** - [Artist Name 5]</li>
-                </ul>
-                <p class="placeholder">
-                    (You can replace these placeholders with YouTube/Spotify embeds later!)
-                </p>
-            </section>
-        </div>
+<script>
+    // Run this when the page loads
+    window.addEventListener('load', () => {
+        // Duration of the confetti effect (in milliseconds)
+        const duration = 3 * 1000; 
+        const animationEnd = Date.now() + duration;
+        const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+        function randomInRange(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        const interval = setInterval(function() {
+            const timeLeft = animationEnd - Date.now();
+
+            if (timeLeft <= 0) {
+                return clearInterval(interval);
+            }
+
+            const particleCount = 50 * (timeLeft / duration);
+            
+            // This creates the confetti
+            confetti(Object.assign({}, defaults, { 
+                particleCount, 
+                origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+                colors: ['#ff6b81', '#ffecd2'], // Your Pink & Peach colors
+                shapes: ['heart'] // ❤️ HEARTS!
+            }));
+            confetti(Object.assign({}, defaults, { 
+                particleCount, 
+                origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+                colors: ['#ff6b81', '#ffecd2'], 
+                shapes: ['heart']
+            }));
+        }, 250);
+    });
+</script>
+    
+
+</section>
+
+        <footer>
+            Made with ❤️ for My Hayati.
+        </footer>
+
     </div>
 
     <script>
-        // Set the date we started dating: August 18th, 2025
-        const startDate = new Date("August 18, 2025 00:00:00").getTime();
+        // --- TIMER LOGIC ---
+        const startDate = new Date("August 25th, 2025 00:00:00").getTime();
 
-        const x = setInterval(function() {
-            // Get today's date and time
+        setInterval(function() {
             const now = new Date().getTime();
-
-            // Find the distance between now and the start date
             const distance = now - startDate;
 
-            // Time calculations for days, hours, minutes, and seconds
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Display the result
-            document.getElementById("timer").innerHTML =
-                days + " days, " +
-                hours + " hours, " +
-                minutes + " minutes, and " +
-                seconds + " seconds";
+            document.getElementById("timer").innerHTML = 
+                days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
         }, 1000);
     </script>
 
